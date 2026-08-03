@@ -83,6 +83,10 @@ img {
   font-weight: 900;
   color: var(--navy);
   letter-spacing: 0.02em;
+  text-shadow: -5.5px -5.5px 5px rgba(#fff, 0.3), 6.5px 6.5px 1px #ff0054;
+  color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #000;
 }
 
 .pop-text-sm {
