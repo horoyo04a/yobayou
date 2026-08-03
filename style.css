@@ -8,7 +8,7 @@
   --text-onink: #ffffff;
   --text-onink-muted: #b9bcc4;
   --nav-h: 72px;
-  --watermark-size-thumb: 40px;
+  --watermark-size-thumb: 100px;
   --watermark-size-full: 280px;
   --watermark-opacity: 0.8;
 
@@ -572,14 +572,14 @@ img {
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  gap: 18px;
+  gap: 6px;
   pointer-events: none;
 }
 
 .about__cameo-bubble {
   position: relative;
   align-self: flex-start;
-  margin-left: -18%;
+  margin-left: -10%;
   background: var(--white);
   border: 3px solid var(--ink);
   border-radius: 20px;
@@ -600,20 +600,20 @@ img {
 .about__cameo-bubble::after {
   content: "";
   position: absolute;
-  bottom: -16px;
+  bottom: -14px;
   border-style: solid;
 }
 
 .about__cameo-bubble::before {
-  right: 32px;
-  border-width: 18px 6px 0 14px;
+  right: 18px;
+  border-width: 16px 4px 0 20px;
   border-color: var(--ink) transparent transparent transparent;
 }
 
 .about__cameo-bubble::after {
-  right: 35px;
-  bottom: -11px;
-  border-width: 13px 4px 0 10px;
+  right: 21px;
+  bottom: -9px;
+  border-width: 11px 3px 0 15px;
   border-color: var(--white) transparent transparent transparent;
 }
 
