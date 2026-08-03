@@ -79,9 +79,8 @@ img {
 
 /* ---------- 印刷錯位效果的粗黑字 ---------- */
 .pop-text {
-  font-family: var(--font-display);
+  font-family: 'DotGothic16', cursive;
   font-weight: 900;
-  color: var(--navy);
   letter-spacing: 0.02em;
   text-shadow: -5.5px -5.5px 5px rgba(#fff, 0.3), 6.5px 6.5px 1px #ff0054;
   color: transparent;
