@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>作品展示 Works｜YOBAYOU┃陽葉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="nav">
+    <a href="index.html#top" class="nav__logo">
+      <!-- 請將您的個人 LOGO 圖片放到 assets/logo.png（建議正方形、透明背景） -->
+      <img src="assets/logo.png" alt="" class="nav__logo-img">
+      <span class="nav__logo-text">YOBAYOU┃陽葉<span class="nav__logo-dot">.</span></span>
+    </a>
+    <nav class="nav__links" aria-label="メインナビゲーション">
+      <a href="works.html" class="is-active">Works</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Works -->
+    <section class="section" id="works">
+      <header class="section__head">
+        <p class="section__label"><span class="sticker sticker--sm">WORKS</span></p>
+        <h2 class="section__title pop-text-sm">作品</h2>
+        <p class="section__desc">画像にマウスを乗せると詳細が表示されます。クリックで拡大表示。小説の依頼作品が中心で、縦長の構図が多めです。</p>
+      </header>
+
+      <div class="filter-bar" role="tablist" aria-label="作品分類フィルター">
+        <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">ALL</button>
+        <button class="filter-btn" data-filter="illustration" role="tab" aria-selected="false">ILLUSTRATION</button>
+        <button class="filter-btn" data-filter="mv" role="tab" aria-selected="false">MV</button>
+        <button class="filter-btn" data-filter="novel" role="tab" aria-selected="false">NOVEL</button>
+        <button class="filter-btn" data-filter="character" role="tab" aria-selected="false">CHARACTER</button>
+      </div>
+
+      <!-- 各作品請依實際內容修改 figure 上的 data-category（illustration／mv／novel／character），下方為示範分類 -->
+      <div class="gallery">
+        <figure class="tile" data-category="novel">
+          <span class="tile__tag">作品標題 01</span>
+          <button class="tile__trigger" data-title="作品標題 01" data-meta="小説挿絵委託 · Novel Illustration · 2026">
+            <img src="works/placeholder-01.png" alt="作品標題 01">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品標題 01</span>
+              <span class="tile__overlay-meta">小説挿絵委託 · Novel Illustration · 2026</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile" data-category="character">
+          <span class="tile__tag">作品標題 02</span>
+          <button class="tile__trigger" data-title="作品標題 02" data-meta="キャラクターデザイン · Character Design · 2026">
+            <img src="works/placeholder-02.png" alt="作品標題 02">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品標題 02</span>
+              <span class="tile__overlay-meta">キャラクターデザイン · Character Design · 2026</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile" data-category="illustration">
+          <span class="tile__tag">作品標題 03</span>
+          <button class="tile__trigger" data-title="作品標題 03" data-meta="オリジナルイラスト · Illustration · 2026">
+            <img src="works/placeholder-03.png" alt="作品標題 03">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品標題 03</span>
+              <span class="tile__overlay-meta">オリジナルイラスト · Illustration · 2026</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile" data-category="mv">
+          <span class="tile__tag">作品標題 04</span>
+          <button class="tile__trigger" data-title="作品標題 04" data-meta="MV用イラスト · MV Illustration · 2026">
+            <img src="works/placeholder-04.png" alt="作品標題 04">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品標題 04</span>
+              <span class="tile__overlay-meta">MV用イラスト · MV Illustration · 2026</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile" data-category="novel">
+          <span class="tile__tag">作品標題 05</span>
+          <button class="tile__trigger" data-title="作品標題 05" data-meta="小説挿絵委託 · Novel Illustration · 2025">
+            <img src="works/placeholder-05.png" alt="作品標題 05">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品標題 05</span>
+              <span class="tile__overlay-meta">小説挿絵委託 · Novel Illustration · 2025</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile" data-category="character">
+          <span class="tile__tag">作品標題 06</span>
+          <button class="tile__trigger" data-title="作品標題 06" data-meta="キャラクターデザイン · Character Design · 2025">
+            <img src="works/placeholder-06.png" alt="作品標題 06">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品標題 06</span>
+              <span class="tile__overlay-meta">キャラクターデザイン · Character Design · 2025</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile" data-category="illustration">
+          <span class="tile__tag">作品標題 07</span>
+          <button class="tile__trigger" data-title="作品標題 07" data-meta="オリジナルイラスト · Illustration · 2025">
+            <img src="works/placeholder-07.png" alt="作品標題 07">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品標題 07</span>
+              <span class="tile__overlay-meta">オリジナルイラスト · Illustration · 2025</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile" data-category="mv">
+          <span class="tile__tag">作品標題 08</span>
+          <button class="tile__trigger" data-title="作品標題 08" data-meta="MV用イラスト · MV Illustration · 2025">
+            <img src="works/placeholder-08.png" alt="作品標題 08">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品標題 08</span>
+              <span class="tile__overlay-meta">MV用イラスト · MV Illustration · 2025</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile" data-category="novel">
+          <span class="tile__tag">作品標題 09</span>
+          <button class="tile__trigger" data-title="作品標題 09" data-meta="小説挿絵委託 · Novel Illustration · 2024">
+            <img src="works/placeholder-09.png" alt="作品標題 09">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品標題 09</span>
+              <span class="tile__overlay-meta">小説挿絵委託 · Novel Illustration · 2024</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile" data-category="character">
+          <span class="tile__tag">作品標題 10</span>
+          <button class="tile__trigger" data-title="作品標題 10" data-meta="キャラクターデザイン · Character Design · 2024">
+            <img src="works/placeholder-10.png" alt="作品標題 10">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品標題 10</span>
+              <span class="tile__overlay-meta">キャラクターデザイン · Character Design · 2024</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile" data-category="illustration">
+          <span class="tile__tag">作品標題 11</span>
+          <button class="tile__trigger" data-title="作品標題 11" data-meta="オリジナルイラスト · Illustration · 2024">
+            <img src="works/placeholder-11.png" alt="作品標題 11">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品標題 11</span>
+              <span class="tile__overlay-meta">オリジナルイラスト · Illustration · 2024</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile" data-category="mv">
+          <span class="tile__tag">作品標題 12</span>
+          <button class="tile__trigger" data-title="作品標題 12" data-meta="MV用イラスト · MV Illustration · 2024">
+            <img src="works/placeholder-12.png" alt="作品標題 12">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品標題 12</span>
+              <span class="tile__overlay-meta">MV用イラスト · MV Illustration · 2024</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile" data-category="novel">
+          <span class="tile__tag">作品標題 13</span>
+          <button class="tile__trigger" data-title="作品標題 13" data-meta="小説挿絵委託 · Novel Illustration · 2023">
+            <img src="works/placeholder-13.png" alt="作品標題 13">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品標題 13</span>
+              <span class="tile__overlay-meta">小説挿絵委託 · Novel Illustration · 2023</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile" data-category="character">
+          <span class="tile__tag">作品標題 14</span>
+          <button class="tile__trigger" data-title="作品標題 14" data-meta="キャラクターデザイン · Character Design · 2023">
+            <img src="works/placeholder-14.png" alt="作品標題 14">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品標題 14</span>
+              <span class="tile__overlay-meta">キャラクターデザイン · Character Design · 2023</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile" data-category="illustration">
+          <span class="tile__tag">作品標題 15</span>
+          <button class="tile__trigger" data-title="作品標題 15" data-meta="オリジナルイラスト · Illustration · 2023">
+            <img src="works/placeholder-15.png" alt="作品標題 15">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品標題 15</span>
+              <span class="tile__overlay-meta">オリジナルイラスト · Illustration · 2023</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile" data-category="mv">
+          <span class="tile__tag">作品標題 16</span>
+          <button class="tile__trigger" data-title="作品標題 16" data-meta="MV用イラスト · MV Illustration · 2023">
+            <img src="works/placeholder-16.png" alt="作品標題 16">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品標題 16</span>
+              <span class="tile__overlay-meta">MV用イラスト · MV Illustration · 2023</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile" data-category="novel">
+          <span class="tile__tag">作品標題 17</span>
+          <button class="tile__trigger" data-title="作品標題 17" data-meta="小説挿絵委託 · Novel Illustration · 2022">
+            <img src="works/placeholder-17.png" alt="作品標題 17">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品標題 17</span>
+              <span class="tile__overlay-meta">小説挿絵委託 · Novel Illustration · 2022</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile" data-category="character">
+          <span class="tile__tag">作品標題 18</span>
+          <button class="tile__trigger" data-title="作品標題 18" data-meta="キャラクターデザイン · Character Design · 2022">
+            <img src="works/placeholder-18.png" alt="作品標題 18">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品標題 18</span>
+              <span class="tile__overlay-meta">キャラクターデザイン · Character Design · 2022</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile" data-category="illustration">
+          <span class="tile__tag">作品標題 19</span>
+          <button class="tile__trigger" data-title="作品標題 19" data-meta="オリジナルイラスト · Illustration · 2022">
+            <img src="works/placeholder-19.png" alt="作品標題 19">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品標題 19</span>
+              <span class="tile__overlay-meta">オリジナルイラスト · Illustration · 2022</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile" data-category="mv">
+          <span class="tile__tag">作品標題 20</span>
+          <button class="tile__trigger" data-title="作品標題 20" data-meta="MV用イラスト · MV Illustration · 2022">
+            <img src="works/placeholder-20.png" alt="作品標題 20">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品標題 20</span>
+              <span class="tile__overlay-meta">MV用イラスト · MV Illustration · 2022</span>
+            </span>
+          </button>
+        </figure>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <p>© 2026 YOBAYOU┃陽葉．All artwork rights reserved.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" id="lightboxClose" aria-label="閉じる">✕</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="前へ">←</button>
+    <figure class="lightbox__figure">
+      <div class="lightbox__imgwrap">
+        <img class="lightbox__img" id="lightboxImg" src="" alt="">
+      </div>
+      <figcaption>
+        <span class="lightbox__title" id="lightboxTitle"></span>
+        <span class="lightbox__meta" id="lightboxMeta"></span>
+      </figcaption>
+    </figure>
+    <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="次へ">→</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

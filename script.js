@@ -1,4 +1,4 @@
-// ---------- 燈箱 Lightbox ----------
+// ---------- 燈箱 Lightbox（只存在於 works.html） ----------
 const triggers = Array.from(document.querySelectorAll('.tile__trigger'));
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
@@ -48,24 +48,26 @@ function showRelative(delta) {
   renderLightbox(visible[currentIndex]);
 }
 
-triggers.forEach((trigger) => {
-  trigger.addEventListener('click', () => openLightbox(trigger));
-});
+if (lightbox && lightboxImg && btnClose && btnPrev && btnNext) {
+  triggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => openLightbox(trigger));
+  });
 
-btnClose.addEventListener('click', closeLightbox);
-btnPrev.addEventListener('click', () => showRelative(-1));
-btnNext.addEventListener('click', () => showRelative(1));
+  btnClose.addEventListener('click', closeLightbox);
+  btnPrev.addEventListener('click', () => showRelative(-1));
+  btnNext.addEventListener('click', () => showRelative(1));
 
-lightbox.addEventListener('click', (e) => {
-  if (e.target === lightbox) closeLightbox();
-});
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
 
-document.addEventListener('keydown', (e) => {
-  if (!lightbox.classList.contains('is-open')) return;
-  if (e.key === 'Escape') closeLightbox();
-  if (e.key === 'ArrowLeft') showRelative(-1);
-  if (e.key === 'ArrowRight') showRelative(1);
-});
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showRelative(-1);
+    if (e.key === 'ArrowRight') showRelative(1);
+  });
+}
 
 // ---------- 作品分類篩選（切換時做淡入淡出，感覺像換頁） ----------
 const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
@@ -95,51 +97,28 @@ filterButtons.forEach((btn) => {
   });
 });
 
-// ---------- 頁面切換（首頁／作品展示／關於／聯絡 各自獨立顯示，不再是同一長頁捲動） ----------
-const pages = Array.from(document.querySelectorAll('.page'));
+// ---------- 捲動時頂部導覽高亮目前章節（僅 index.html 的首頁／關於／聯絡） ----------
+const sections = document.querySelectorAll('main section[id]');
 const navLinks = document.querySelectorAll('.nav__links a');
-const mainEl = document.querySelector('main');
-const PAGE_TRANSITION_MS = 180;
-let isSwitchingPage = false;
 
-const setActiveNav = (id) => {
+const setActive = (id) => {
   navLinks.forEach((link) => {
     link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`);
   });
 };
 
-function showPage(id, { updateHistory = true } = {}) {
-  const target = document.getElementById(id);
-  if (!target || !target.classList.contains('page') || isSwitchingPage) return;
-  if (target.classList.contains('is-active')) return;
+if (sections.length) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    },
+    { rootMargin: '-40% 0px -50% 0px' }
+  );
 
-  isSwitchingPage = true;
-  if (mainEl) mainEl.classList.add('is-switching');
-
-  window.setTimeout(() => {
-    pages.forEach((page) => page.classList.toggle('is-active', page.id === id));
-    if (mainEl) mainEl.classList.remove('is-switching');
-    window.scrollTo({ top: 0, behavior: 'auto' });
-    setActiveNav(id);
-    if (updateHistory) history.replaceState(null, '', `#${id}`);
-    isSwitchingPage = false;
-  }, PAGE_TRANSITION_MS);
+  sections.forEach((section) => observer.observe(section));
 }
-
-// 只攔截指到「獨立頁面」(#top / #works / #about / #contact) 的連結，其餘連結（外部社群、mailto 等）維持原本行為
-const pageIds = new Set(pages.map((page) => page.id));
-document.querySelectorAll('a[href^="#"]').forEach((link) => {
-  const id = link.getAttribute('href').slice(1);
-  if (!pageIds.has(id)) return;
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    showPage(id);
-  });
-});
-
-const initialId = pageIds.has(location.hash.slice(1)) ? location.hash.slice(1) : 'top';
-pages.forEach((page) => page.classList.toggle('is-active', page.id === initialId));
-setActiveNav(initialId);
 
 // ---------- Hero 漫畫分格：四格輪流換圖 ----------
 const heroImages = [
