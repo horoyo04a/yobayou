@@ -8,7 +8,8 @@
   --text-onink: #ffffff;
   --text-onink-muted: #b9bcc4;
   --nav-h: 72px;
-  --watermark-size: 280px;
+  --watermark-size-thumb: 56px;
+  --watermark-size-full: 280px;
   --watermark-opacity: 0.8;
 
   --font-display: "Noto Sans JP", sans-serif;
@@ -486,7 +487,7 @@ img {
   transform: scale(1.07);
 }
 
-/* 浮水印（請將您自己的圖片放到 assets/watermark.png） */
+/* 浮水印（預覽縮圖用小尺寸，請將您自己的圖片放到 assets/watermark.png） */
 .tile__trigger::after {
   content: "";
   position: absolute;
@@ -495,8 +496,8 @@ img {
   opacity: var(--watermark-opacity);
   background-image: url("assets/watermark.png");
   background-repeat: no-repeat;
-  background-position: bottom 10px right 10px;
-  background-size: var(--watermark-size) var(--watermark-size);
+  background-position: bottom 8px right 8px;
+  background-size: var(--watermark-size-thumb) var(--watermark-size-thumb);
 }
 
 .tile__overlay {
@@ -559,34 +560,36 @@ img {
   border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-/* 右側裝飾：半身角色＋對話框，腳底對齊區塊底線，不影響上方原本的文字排版 */
+/* 右側裝飾：半身角色＋對話框，置中於文字右側的留白區塊，腳底對齊區塊底線 */
 .about__cameo {
   position: absolute;
-  right: 6vw;
+  left: 72%;
+  transform: translateX(-50%);
   bottom: 0;
   z-index: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 14px;
+  align-items: center;
+  gap: 18px;
   pointer-events: none;
 }
 
 .about__cameo-bubble {
   position: relative;
+  align-self: flex-start;
+  margin-left: -12%;
   background: var(--white);
   border: 3px solid var(--ink);
   border-radius: 20px;
-  padding: 14px 20px;
+  padding: 18px 26px;
   box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.45);
-  max-width: 220px;
-  margin-right: 20px;
+  max-width: 300px;
 }
 
 .about__cameo-bubble p {
   margin: 0;
   color: var(--ink);
-  font-size: 0.88rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -612,9 +615,9 @@ img {
 }
 
 .about__cameo-img {
-  height: min(40vh, 320px);
+  height: min(52vh, 460px);
   width: auto;
-  max-width: 260px;
+  max-width: 380px;
   display: block;
   filter: drop-shadow(6px 6px 0 rgba(0, 0, 0, 0.4));
 }
@@ -750,7 +753,7 @@ img {
   width: auto;
 }
 
-/* 浮水印（放大檢視時也會顯示，請將圖片放到 assets/watermark.png） */
+/* 浮水印（放大檢視用大尺寸，請將圖片放到 assets/watermark.png） */
 .lightbox__imgwrap::after {
   content: "";
   position: absolute;
@@ -760,7 +763,7 @@ img {
   background-image: url("assets/watermark.png");
   background-repeat: no-repeat;
   background-position: bottom 14px right 14px;
-  background-size: calc(var(--watermark-size) * 1.3) calc(var(--watermark-size) * 1.3);
+  background-size: var(--watermark-size-full) var(--watermark-size-full);
 }
 
 .lightbox__figure figcaption { text-align: center; color: var(--white); }
@@ -814,7 +817,8 @@ img {
 /* ---------- RWD ---------- */
 @media (max-width: 720px) {
   :root {
-    --watermark-size: 150px;
+    --watermark-size-thumb: 40px;
+    --watermark-size-full: 180px;
   }
 
   .nav { padding: 0 5vw; }
@@ -836,14 +840,16 @@ img {
 
   .about__cameo {
     position: static;
+    left: auto;
+    transform: none;
     margin: 28px 0 0;
     align-items: center;
     pointer-events: auto;
   }
-  .about__cameo-bubble { margin-right: 0; max-width: 260px; }
+  .about__cameo-bubble { align-self: center; margin-left: 0; max-width: 260px; }
   .about__cameo-bubble::before,
   .about__cameo-bubble::after { display: none; }
-  .about__cameo-img { height: auto; width: 55vw; max-width: 220px; }
+  .about__cameo-img { height: auto; width: 55vw; max-width: 240px; }
 
   .lightbox { padding: 8vw 5vw; }
   .lightbox__figure { max-width: 92vw; max-height: 88vh; }
