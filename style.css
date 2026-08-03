@@ -158,6 +158,13 @@ img { max-width: 100%; display: block; }
   border-color: var(--navy);
 }
 
+/* ---------- 頁面切換：一次只顯示一個「頁面」，其餘完全不佔版位、也不會被捲動到 ---------- */
+main { transition: opacity 0.18s ease; }
+main.is-switching { opacity: 0; }
+
+.page { display: none; }
+.page.is-active { display: block; }
+
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
@@ -735,7 +742,7 @@ img { max-width: 100%; display: block; }
     animation: none !important;
   }
   .tile__trigger, .tile__trigger img, .hero__cta, .contact__item, .hero__social-item,
-  .lang-check, .hero__panel img, .gallery, .filter-btn {
+  .lang-check, .hero__panel img, .gallery, .filter-btn, main {
     transition: none;
   }
 }

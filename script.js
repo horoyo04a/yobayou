@@ -95,26 +95,51 @@ filterButtons.forEach((btn) => {
   });
 });
 
-// ---------- 捲動時頂部導覽高亮目前章節 ----------
-const sections = document.querySelectorAll('main section[id]');
+// ---------- 頁面切換（首頁／作品展示／關於／聯絡 各自獨立顯示，不再是同一長頁捲動） ----------
+const pages = Array.from(document.querySelectorAll('.page'));
 const navLinks = document.querySelectorAll('.nav__links a');
+const mainEl = document.querySelector('main');
+const PAGE_TRANSITION_MS = 180;
+let isSwitchingPage = false;
 
-const setActive = (id) => {
+const setActiveNav = (id) => {
   navLinks.forEach((link) => {
     link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`);
   });
 };
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) setActive(entry.target.id);
-    });
-  },
-  { rootMargin: '-40% 0px -50% 0px' }
-);
+function showPage(id, { updateHistory = true } = {}) {
+  const target = document.getElementById(id);
+  if (!target || !target.classList.contains('page') || isSwitchingPage) return;
+  if (target.classList.contains('is-active')) return;
 
-sections.forEach((section) => observer.observe(section));
+  isSwitchingPage = true;
+  if (mainEl) mainEl.classList.add('is-switching');
+
+  window.setTimeout(() => {
+    pages.forEach((page) => page.classList.toggle('is-active', page.id === id));
+    if (mainEl) mainEl.classList.remove('is-switching');
+    window.scrollTo({ top: 0, behavior: 'auto' });
+    setActiveNav(id);
+    if (updateHistory) history.replaceState(null, '', `#${id}`);
+    isSwitchingPage = false;
+  }, PAGE_TRANSITION_MS);
+}
+
+// 只攔截指到「獨立頁面」(#top / #works / #about / #contact) 的連結，其餘連結（外部社群、mailto 等）維持原本行為
+const pageIds = new Set(pages.map((page) => page.id));
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  const id = link.getAttribute('href').slice(1);
+  if (!pageIds.has(id)) return;
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    showPage(id);
+  });
+});
+
+const initialId = pageIds.has(location.hash.slice(1)) ? location.hash.slice(1) : 'top';
+pages.forEach((page) => page.classList.toggle('is-active', page.id === initialId));
+setActiveNav(initialId);
 
 // ---------- Hero 漫畫分格：四格輪流換圖 ----------
 const heroImages = [
