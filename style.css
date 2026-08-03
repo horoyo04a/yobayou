@@ -30,7 +30,14 @@ body {
 }
 
 a { color: inherit; }
-img { max-width: 100%; display: block; }
+img {
+  max-width: 100%;
+  display: block;
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
 
 /* ---------- 共用：halftone 網點 ---------- */
 .halftone {
@@ -395,8 +402,8 @@ img { max-width: 100%; display: block; }
 .gallery {
   position: relative;
   z-index: 2;
-  column-count: 3;
-  column-gap: 24px;
+  column-width: 220px;
+  column-gap: 20px;
   transition: opacity 0.2s ease;
 }
 
@@ -724,14 +731,6 @@ img { max-width: 100%; display: block; }
 }
 
 /* ---------- RWD ---------- */
-@media (min-width: 1400px) {
-  .gallery { column-count: 4; }
-}
-
-@media (max-width: 960px) {
-  .gallery { column-count: 2; }
-}
-
 @media (max-width: 720px) {
   :root {
     --watermark-size: 150px;
@@ -749,7 +748,7 @@ img { max-width: 100%; display: block; }
   .hero__panel:nth-child(3),
   .hero__panel:nth-child(4) { display: none; }
 
-  .gallery { column-count: 1; column-gap: 0; }
+  .gallery { column-width: 150px; column-gap: 12px; }
   .tile { margin-bottom: 14px; }
 
   .about { grid-template-columns: 1fr; }

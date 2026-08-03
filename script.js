@@ -1,3 +1,15 @@
+// ---------- 圖片保護：擋右鍵選單、擋拖曳另開視窗 ----------
+// 注意：這只能擋掉一般使用者的右鍵/拖曳操作，
+// 懂技術的人還是可以用瀏覽器開發者工具或截圖拿到原圖，無法做到 100% 防盜圖。
+document.addEventListener('contextmenu', (e) => {
+  if (e.target.tagName === 'IMG') e.preventDefault();
+});
+
+document.querySelectorAll('img').forEach((img) => {
+  img.setAttribute('draggable', 'false');
+  img.addEventListener('dragstart', (e) => e.preventDefault());
+});
+
 // ---------- 燈箱 Lightbox（只存在於 works.html） ----------
 const triggers = Array.from(document.querySelectorAll('.tile__trigger'));
 const lightbox = document.getElementById('lightbox');
