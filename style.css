@@ -81,7 +81,6 @@ img {
 .pop-text {
   font-family: 'DotGothic16', cursive;
   font-weight: 900;
-  letter-spacing: 0.02em;
   text-shadow: -5.5px -5.5px 5px rgba(#fff, 0.3), 6.5px 6.5px 1px #ff0054;
   color: transparent;
   -webkit-text-stroke-width: 2px;
