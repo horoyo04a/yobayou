@@ -362,6 +362,10 @@ img {
   border-bottom: none;
 }
 
+.section--navy#about {
+  min-height: 560px;
+}
+
 .section--navy .section__title { color: var(--white); text-shadow: 3px 3px 0 var(--ink); }
 .section--navy .section__desc { color: var(--text-onink-muted); }
 .section--navy .sticker--onink { box-shadow: 3px 3px 0 var(--ink); }
@@ -554,6 +558,69 @@ img {
   padding-bottom: 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
+
+/* 右側裝飾：半身角色＋對話框，腳底對齊區塊底線，不影響上方原本的文字排版 */
+.about__cameo {
+  position: absolute;
+  right: 6vw;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+  pointer-events: none;
+}
+
+.about__cameo-bubble {
+  position: relative;
+  background: var(--white);
+  border: 3px solid var(--ink);
+  border-radius: 20px;
+  padding: 14px 20px;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.45);
+  max-width: 220px;
+  margin-right: 20px;
+}
+
+.about__cameo-bubble p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.about__cameo-bubble::before,
+.about__cameo-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -16px;
+  border-style: solid;
+}
+
+.about__cameo-bubble::before {
+  right: 32px;
+  border-width: 18px 6px 0 14px;
+  border-color: var(--ink) transparent transparent transparent;
+}
+
+.about__cameo-bubble::after {
+  right: 35px;
+  bottom: -11px;
+  border-width: 13px 4px 0 10px;
+  border-color: var(--white) transparent transparent transparent;
+}
+
+.about__cameo-img {
+  height: min(40vh, 320px);
+  width: auto;
+  max-width: 260px;
+  display: block;
+  filter: drop-shadow(6px 6px 0 rgba(0, 0, 0, 0.4));
+}
+
+.about__cameo-img:not([src]),
+.about__cameo-img[src=""] { display: none; }
 
 /* ---------- 聯絡 ---------- */
 .contact {
@@ -766,6 +833,17 @@ img {
   .tile { margin-bottom: 14px; }
 
   .about { grid-template-columns: 1fr; }
+
+  .about__cameo {
+    position: static;
+    margin: 28px 0 0;
+    align-items: center;
+    pointer-events: auto;
+  }
+  .about__cameo-bubble { margin-right: 0; max-width: 260px; }
+  .about__cameo-bubble::before,
+  .about__cameo-bubble::after { display: none; }
+  .about__cameo-img { height: auto; width: 55vw; max-width: 220px; }
 
   .lightbox { padding: 8vw 5vw; }
   .lightbox__figure { max-width: 92vw; max-height: 88vh; }
