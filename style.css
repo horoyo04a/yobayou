@@ -8,7 +8,7 @@
   --text-onink: #ffffff;
   --text-onink-muted: #b9bcc4;
   --nav-h: 72px;
-  --watermark-size-thumb: 56px;
+  --watermark-size-thumb: 40px;
   --watermark-size-full: 280px;
   --watermark-opacity: 0.8;
 
@@ -364,7 +364,7 @@ img {
 }
 
 .section--navy#about {
-  min-height: 560px;
+  min-height: 680px;
 }
 
 .section--navy .section__title { color: var(--white); text-shadow: 3px 3px 0 var(--ink); }
@@ -563,13 +563,15 @@ img {
 /* 右側裝飾：半身角色＋對話框，置中於文字右側的留白區塊，腳底對齊區塊底線 */
 .about__cameo {
   position: absolute;
-  left: 72%;
-  transform: translateX(-50%);
+  top: 0;
   bottom: 0;
+  left: calc(6vw + 80ch + (100% - 12vw - 80ch) / 2);
+  transform: translateX(-50%);
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-end;
   gap: 18px;
   pointer-events: none;
 }
@@ -577,19 +579,20 @@ img {
 .about__cameo-bubble {
   position: relative;
   align-self: flex-start;
-  margin-left: -12%;
+  margin-left: -18%;
   background: var(--white);
   border: 3px solid var(--ink);
   border-radius: 20px;
-  padding: 18px 26px;
-  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.45);
-  max-width: 300px;
+  padding: 20px 28px;
+  box-shadow: 7px 7px 0 rgba(0, 0, 0, 0.45);
+  max-width: 340px;
+  flex-shrink: 0;
 }
 
 .about__cameo-bubble p {
   margin: 0;
   color: var(--ink);
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
 }
 
@@ -615,9 +618,9 @@ img {
 }
 
 .about__cameo-img {
-  height: min(52vh, 460px);
+  height: calc(100% - 130px);
   width: auto;
-  max-width: 380px;
+  max-width: 460px;
   display: block;
   filter: drop-shadow(6px 6px 0 rgba(0, 0, 0, 0.4));
 }
@@ -826,12 +829,23 @@ img {
 
   .hero {
     grid-template-columns: 1fr;
-    padding-top: 8vh;
+    padding: 8vh 34px 56px;
   }
 
   .hero__visual { height: 300px; margin-top: 12px; }
   .hero__panel:nth-child(3),
   .hero__panel:nth-child(4) { display: none; }
+
+  .speech-bg { inset: -10px -12px -16px -10px; }
+  .speech-bg::before {
+    bottom: -14px;
+    border-width: 14px 18px 0 0;
+  }
+  .speech-bg::after {
+    bottom: -10px;
+    left: calc(15% + 3px);
+    border-width: 11px 14px 0 0;
+  }
 
   .gallery { column-width: 150px; column-gap: 12px; }
   .tile { margin-bottom: 14px; }
@@ -840,8 +854,10 @@ img {
 
   .about__cameo {
     position: static;
+    top: auto;
     left: auto;
     transform: none;
+    justify-content: flex-start;
     margin: 28px 0 0;
     align-items: center;
     pointer-events: auto;
