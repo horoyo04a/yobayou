@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YOBAYOU┃陽葉｜插畫作品集</title>
+<title>YOBAYOU┃陽葉｜Illustration Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header class="nav">
     <a href="#top" class="nav__logo">YOBAYOU┃陽葉<span class="nav__logo-dot">.</span></a>
-    <nav class="nav__links" aria-label="主導覽">
-      <a href="#works" data-nav>作品</a>
-      <a href="#about" data-nav>關於</a>
-      <a href="#contact" data-nav>聯絡</a>
+    <nav class="nav__links" aria-label="メインナビゲーション">
+      <a href="#works" data-nav>Works</a>
+      <a href="#about" data-nav>About</a>
+      <a href="#contact" data-nav>Contact</a>
     </nav>
   </header>
 
@@ -29,96 +29,97 @@
         <p class="hero__eyebrow">
           <span class="sticker">ILLUSTRATION PORTFOLIO</span>
         </p>
-        <h1 class="hero__name pop-text"><YOBAYOU┃陽葉<br></h1>
-        <p class="hero__role">插畫師 ／ 小說插圖 ／ 角色委託</p>
+        <h1 class="hero__name pop-text">YOBAYOU<br>┃陽葉</h1>
+        <p class="hero__role">Illustrator ／ Novel Illustration ／ Character Design</p>
         <p class="hero__note">
-          承接小說封面與內頁插圖、角色委託。
+          小説の表紙・挿絵、キャラクターデザインのご依頼を承っております。
+          電子書籍制作会社での勤務経験を活かし、縦長構図の視線誘導と余白のバランスを大切にしています。
         </p>
-        <a href="#works" class="hero__cta">看作品 →</a>
+        <a href="#works" class="hero__cta">See Works →</a>
       </div>
 
       <div class="hero__visual">
         <div class="motion-lines" aria-hidden="true"></div>
         <div class="hero__stack" aria-hidden="true">
-          <img class="hero__card hero__card--1" src="works/placeholder-3.svg" alt="">
-          <img class="hero__card hero__card--2" src="works/placeholder-1.svg" alt="">
-          <span class="hero__vol">VOL.01</span>
+          <img id="heroCard1" class="hero__card hero__card--1" src="works/placeholder-3.svg" alt="">
+          <img id="heroCard2" class="hero__card hero__card--2" src="works/placeholder-1.svg" alt="">
+          <span class="hero__vol" id="heroVol">01 / 06</span>
         </div>
       </div>
     </section>
 
-    <!-- 作品 -->
+    <!-- Works -->
     <section class="section" id="works">
       <header class="section__head">
         <p class="section__label"><span class="sticker sticker--sm">WORKS</span></p>
         <h2 class="section__title pop-text-sm">作品</h2>
-        <p class="section__desc">滑過看說明，點圖可以放大瀏覽。多為小說委託插圖，以直式畫幅呈現。</p>
+        <p class="section__desc">画像にマウスを乗せると詳細が表示されます。クリックで拡大表示。小説の依頼作品が中心で、縦長の構図が多めです。</p>
       </header>
 
       <div class="gallery">
 
         <figure class="tile tile--1">
           <span class="tile__tag">No.01</span>
-          <button class="tile__trigger" data-title="作品標題一" data-meta="小說委託 · 內頁插圖 · 2026">
-            <img src="works/placeholder-1.svg" alt="作品標題一">
+          <button class="tile__trigger" data-title="作品タイトル 01" data-meta="小説挿絵委託 · Novel Illustration · 2026">
+            <img src="works/placeholder-1.svg" alt="作品タイトル 01">
             <span class="tile__overlay">
-              <span class="tile__overlay-title">作品標題一</span>
-              <span class="tile__overlay-meta">小說委託 · 內頁插圖 · 2026</span>
+              <span class="tile__overlay-title">作品タイトル 01</span>
+              <span class="tile__overlay-meta">小説挿絵委託 · Novel Illustration · 2026</span>
             </span>
           </button>
         </figure>
 
         <figure class="tile tile--2">
           <span class="tile__tag">No.02</span>
-          <button class="tile__trigger" data-title="作品標題二" data-meta="角色委託 · 2025">
-            <img src="works/placeholder-2.svg" alt="作品標題二">
+          <button class="tile__trigger" data-title="作品タイトル 02" data-meta="キャラクターデザイン · Character Design · 2025">
+            <img src="works/placeholder-2.svg" alt="作品タイトル 02">
             <span class="tile__overlay">
-              <span class="tile__overlay-title">作品標題二</span>
-              <span class="tile__overlay-meta">角色委託 · 2025</span>
+              <span class="tile__overlay-title">作品タイトル 02</span>
+              <span class="tile__overlay-meta">キャラクターデザイン · Character Design · 2025</span>
             </span>
           </button>
         </figure>
 
         <figure class="tile tile--3">
           <span class="tile__tag">No.03</span>
-          <button class="tile__trigger" data-title="作品標題三" data-meta="小說封面 · 2025">
-            <img src="works/placeholder-3.svg" alt="作品標題三">
+          <button class="tile__trigger" data-title="作品タイトル 03" data-meta="小説カバーイラスト · Novel Cover · 2025">
+            <img src="works/placeholder-3.svg" alt="作品タイトル 03">
             <span class="tile__overlay">
-              <span class="tile__overlay-title">作品標題三</span>
-              <span class="tile__overlay-meta">小說封面 · 2025</span>
+              <span class="tile__overlay-title">作品タイトル 03</span>
+              <span class="tile__overlay-meta">小説カバーイラスト · Novel Cover · 2025</span>
             </span>
           </button>
         </figure>
 
         <figure class="tile tile--4">
           <span class="tile__tag">No.04</span>
-          <button class="tile__trigger" data-title="作品標題四" data-meta="同人小說插畫 · 2024">
-            <img src="works/placeholder-4.svg" alt="作品標題四">
+          <button class="tile__trigger" data-title="作品タイトル 04" data-meta="同人小説挿絵 · Fan Novel Illustration · 2024">
+            <img src="works/placeholder-4.svg" alt="作品タイトル 04">
             <span class="tile__overlay">
-              <span class="tile__overlay-title">作品標題四</span>
-              <span class="tile__overlay-meta">同人小說插畫 · 2024</span>
+              <span class="tile__overlay-title">作品タイトル 04</span>
+              <span class="tile__overlay-meta">同人小説挿絵 · Fan Novel Illustration · 2024</span>
             </span>
           </button>
         </figure>
 
         <figure class="tile tile--5">
           <span class="tile__tag">No.05</span>
-          <button class="tile__trigger" data-title="作品標題五" data-meta="小說委託 · 內頁插圖 · 2024">
-            <img src="works/placeholder-5.svg" alt="作品標題五">
+          <button class="tile__trigger" data-title="作品タイトル 05" data-meta="小説挿絵委託 · Novel Illustration · 2024">
+            <img src="works/placeholder-5.svg" alt="作品タイトル 05">
             <span class="tile__overlay">
-              <span class="tile__overlay-title">作品標題五</span>
-              <span class="tile__overlay-meta">小說委託 · 內頁插圖 · 2024</span>
+              <span class="tile__overlay-title">作品タイトル 05</span>
+              <span class="tile__overlay-meta">小説挿絵委託 · Novel Illustration · 2024</span>
             </span>
           </button>
         </figure>
 
         <figure class="tile tile--6">
           <span class="tile__tag">No.06</span>
-          <button class="tile__trigger" data-title="作品標題六" data-meta="角色設計 · 2024">
-            <img src="works/placeholder-6.svg" alt="作品標題六">
+          <button class="tile__trigger" data-title="作品タイトル 06" data-meta="キャラクターデザイン · Character Design · 2024">
+            <img src="works/placeholder-6.svg" alt="作品タイトル 06">
             <span class="tile__overlay">
-              <span class="tile__overlay-title">作品標題六</span>
-              <span class="tile__overlay-meta">角色設計 · 2024</span>
+              <span class="tile__overlay-title">作品タイトル 06</span>
+              <span class="tile__overlay-meta">キャラクターデザイン · Character Design · 2024</span>
             </span>
           </button>
         </figure>
@@ -126,39 +127,39 @@
       </div>
     </section>
 
-    <!-- 關於 -->
+    <!-- About -->
     <section class="section section--ink" id="about">
       <div class="halftone halftone--onink" aria-hidden="true"></div>
       <header class="section__head">
         <p class="section__label"><span class="sticker sticker--onink">ABOUT</span></p>
-        <h2 class="section__title">關於</h2>
+        <h2 class="section__title">プロフィール</h2>
       </header>
       <div class="about">
         <p class="about__bio">
-          我是插畫師「你的名字」，曾在電子書公司負責內容製作，
-          對直式畫面的節奏、視線引導特別有感。
-          現在主要承接小說封面與內頁插圖、角色委託，
-          喜歡在一張畫裡說一段完整的情節。
+          イラストレーターのYOBAYOU┃陽葉です。電子書籍制作会社でのコンテンツ制作経験を活かし、
+          縦長画面のリズムと視線誘導に強いこだわりを持っています。
+          現在は小説の表紙・挿絵、キャラクターデザインのご依頼を中心に活動中。
+          一枚の絵の中に、物語のワンシーンを描くのが好きです。
         </p>
         <ul class="about__skills">
-          <li>小說封面</li>
-          <li>內頁插圖</li>
-          <li>角色委託</li>
-          <li>同人創作</li>
+          <li>Novel Cover</li>
+          <li>Novel Illustration</li>
+          <li>Character Design</li>
+          <li>Fan Illustration</li>
         </ul>
       </div>
     </section>
 
-    <!-- 聯絡 -->
+    <!-- Contact -->
     <section class="section" id="contact">
       <header class="section__head">
         <p class="section__label"><span class="sticker sticker--sm">CONTACT</span></p>
-        <h2 class="section__title pop-text-sm">聯絡</h2>
-        <p class="section__desc">委託 / 合作歡迎來信，或透過下列管道找我。</p>
+        <h2 class="section__title pop-text-sm">お問い合わせ</h2>
+        <p class="section__desc">ご依頼・お仕事のご相談はお気軽にどうぞ。下記のリンクからもご連絡いただけます。</p>
       </header>
       <div class="contact">
         <a href="mailto:you@example.com" class="contact__item">you@example.com</a>
-        <a href="https://www.foriio.com/" class="contact__item" target="_blank" rel="noopener">foriio 作品集</a>
+        <a href="https://www.foriio.com/" class="contact__item" target="_blank" rel="noopener">foriio Portfolio</a>
         <a href="https://www.pixiv.net/" class="contact__item" target="_blank" rel="noopener">Pixiv</a>
         <a href="https://x.com/" class="contact__item" target="_blank" rel="noopener">X (Twitter)</a>
       </div>
@@ -166,12 +167,12 @@
   </main>
 
   <footer class="colophon">
-    <p>© 2026 你的名字．All artwork rights reserved.</p>
+    <p>© 2026 YOBAYOU┃陽葉．All artwork rights reserved.</p>
   </footer>
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox__close" id="lightboxClose" aria-label="關閉">✕</button>
-    <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="上一張">←</button>
+    <button class="lightbox__close" id="lightboxClose" aria-label="閉じる">✕</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="前へ">←</button>
     <figure class="lightbox__figure">
       <img class="lightbox__img" id="lightboxImg" src="" alt="">
       <figcaption>
@@ -179,7 +180,7 @@
         <span class="lightbox__meta" id="lightboxMeta"></span>
       </figcaption>
     </figure>
-    <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="下一張">→</button>
+    <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="次へ">→</button>
   </div>
 
   <script src="script.js"></script>
