@@ -113,12 +113,29 @@ img { max-width: 100%; display: block; }
 }
 
 .nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-display);
   font-weight: 900;
   font-size: 1.15rem;
   color: var(--ink);
   text-decoration: none;
 }
+
+.nav__logo-img {
+  width: 34px;
+  height: 34px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  background: var(--white);
+}
+
+.nav__logo-img:not([src]),
+.nav__logo-img[src=""] { display: none; }
+
+.nav__logo-text { display: inline-flex; align-items: baseline; }
 
 .nav__logo-dot { color: var(--navy); }
 
@@ -288,22 +305,6 @@ img { max-width: 100%; display: block; }
   transition: opacity 0.28s ease;
 }
 
-.hero__vol {
-  position: absolute;
-  right: 2%;
-  bottom: 8px;
-  z-index: 3;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 0.8rem;
-  background: var(--navy);
-  color: var(--white);
-  border: 2px solid var(--ink);
-  padding: 6px 12px;
-  transform: rotate(3deg);
-  animation: riseIn 0.7s ease 0.45s both;
-}
-
 /* ---------- 章節共用 ---------- */
 .section {
   position: relative;
@@ -335,6 +336,41 @@ img { max-width: 100%; display: block; }
 .section__desc { color: var(--ink-muted); margin: 0; font-size: 0.95rem; }
 
 /* ---------- 作品：縱長卡片版面 ---------- */
+.filter-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 32px;
+}
+
+.filter-btn {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  background: var(--white);
+  border: 2px solid var(--ink);
+  padding: 8px 16px;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--navy);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.filter-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--navy);
+}
+
+.filter-btn.is-active {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.tile.is-hidden { display: none; }
+
 .gallery {
   position: relative;
   z-index: 2;
@@ -508,6 +544,8 @@ img { max-width: 100%; display: block; }
   margin: 0 0 14px;
 }
 
+.contact__manager { margin-bottom: 16px; }
+
 .contact__langs {
   display: flex;
   flex-wrap: wrap;
@@ -680,7 +718,7 @@ img { max-width: 100%; display: block; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .hero__eyebrow, .hero__name, .hero__role, .hero__social, .hero__note, .hero__cta,
-  .hero__vol, .lightbox__figure {
+  .lightbox__figure {
     animation: none !important;
   }
   .tile__trigger, .tile__trigger img, .hero__cta, .contact__item, .hero__social-item,

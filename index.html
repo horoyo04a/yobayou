@@ -12,7 +12,11 @@
 <body>
 
   <header class="nav">
-    <a href="#top" class="nav__logo">YOBAYOU┃陽葉<span class="nav__logo-dot">.</span></a>
+    <a href="#top" class="nav__logo">
+      <!-- 請將您的個人 LOGO 圖片放到 assets/logo.png（建議正方形、透明背景） -->
+      <img src="assets/logo.png" alt="" class="nav__logo-img">
+      <span class="nav__logo-text">YOBAYOU┃陽葉<span class="nav__logo-dot">.</span></span>
+    </a>
     <nav class="nav__links" aria-label="メインナビゲーション">
       <a href="#works" data-nav>Works</a>
       <a href="#about" data-nav>About</a>
@@ -54,7 +58,6 @@
           <div class="hero__panel"><img id="heroCard3" src="works/placeholder-3.svg" alt=""></div>
           <div class="hero__panel"><img id="heroCard4" src="works/placeholder-4.svg" alt=""></div>
         </div>
-        <span class="hero__vol" id="heroVol">01 / 12</span>
       </div>
     </section>
 
@@ -66,9 +69,18 @@
         <p class="section__desc">画像にマウスを乗せると詳細が表示されます。クリックで拡大表示。小説の依頼作品が中心で、縦長の構図が多めです。</p>
       </header>
 
+      <div class="filter-bar" role="tablist" aria-label="作品分類フィルター">
+        <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">ALL</button>
+        <button class="filter-btn" data-filter="illustration" role="tab" aria-selected="false">ILLUSTRATION</button>
+        <button class="filter-btn" data-filter="mv" role="tab" aria-selected="false">MV</button>
+        <button class="filter-btn" data-filter="novel" role="tab" aria-selected="false">NOVEL</button>
+        <button class="filter-btn" data-filter="character" role="tab" aria-selected="false">CHARACTER</button>
+      </div>
+
+      <!-- 各作品請依實際內容修改 figure 上的 data-category（illustration／mv／novel／character），下方為示範分類 -->
       <div class="gallery">
 
-        <figure class="tile">
+        <figure class="tile" data-category="novel">
           <span class="tile__tag">No.01</span>
           <button class="tile__trigger" data-title="作品タイトル 01" data-meta="小説挿絵委託 · Novel Illustration · 2026">
             <img src="works/placeholder-1.svg" alt="作品タイトル 01">
@@ -79,7 +91,7 @@
           </button>
         </figure>
 
-        <figure class="tile">
+        <figure class="tile" data-category="character">
           <span class="tile__tag">No.02</span>
           <button class="tile__trigger" data-title="作品タイトル 02" data-meta="キャラクターデザイン · Character Design · 2025">
             <img src="works/placeholder-2.svg" alt="作品タイトル 02">
@@ -90,10 +102,10 @@
           </button>
         </figure>
 
-        <figure class="tile">
+        <figure class="tile" data-category="novel">
           <span class="tile__tag">No.03</span>
           <button class="tile__trigger" data-title="作品タイトル 03" data-meta="小説カバーイラスト · Novel Cover · 2025">
-            <img src="works/placeholder-3.png" alt="作品タイトル 03">
+            <img src="works/placeholder-3.svg" alt="作品タイトル 03">
             <span class="tile__overlay">
               <span class="tile__overlay-title">作品タイトル 03</span>
               <span class="tile__overlay-meta">小説カバーイラスト · Novel Cover · 2025</span>
@@ -101,7 +113,7 @@
           </button>
         </figure>
 
-        <figure class="tile">
+        <figure class="tile" data-category="illustration">
           <span class="tile__tag">No.04</span>
           <button class="tile__trigger" data-title="作品タイトル 04" data-meta="同人小説挿絵 · Fan Novel Illustration · 2024">
             <img src="works/placeholder-4.svg" alt="作品タイトル 04">
@@ -112,7 +124,7 @@
           </button>
         </figure>
 
-        <figure class="tile">
+        <figure class="tile" data-category="mv">
           <span class="tile__tag">No.05</span>
           <button class="tile__trigger" data-title="作品タイトル 05" data-meta="小説挿絵委託 · Novel Illustration · 2024">
             <img src="works/placeholder-5.svg" alt="作品タイトル 05">
@@ -123,7 +135,7 @@
           </button>
         </figure>
 
-        <figure class="tile">
+        <figure class="tile" data-category="character">
           <span class="tile__tag">No.06</span>
           <button class="tile__trigger" data-title="作品タイトル 06" data-meta="キャラクターデザイン · Character Design · 2024">
             <img src="works/placeholder-6.svg" alt="作品タイトル 06">
@@ -134,7 +146,7 @@
           </button>
         </figure>
 
-        <figure class="tile">
+        <figure class="tile" data-category="novel">
           <span class="tile__tag">No.07</span>
           <button class="tile__trigger" data-title="作品タイトル 07" data-meta="小説カバーイラスト · Novel Cover · 2024">
             <img src="works/placeholder-7.svg" alt="作品タイトル 07">
@@ -145,7 +157,7 @@
           </button>
         </figure>
 
-        <figure class="tile">
+        <figure class="tile" data-category="illustration">
           <span class="tile__tag">No.08</span>
           <button class="tile__trigger" data-title="作品タイトル 08" data-meta="小説挿絵委託 · Novel Illustration · 2023">
             <img src="works/placeholder-8.svg" alt="作品タイトル 08">
@@ -156,7 +168,7 @@
           </button>
         </figure>
 
-        <figure class="tile">
+        <figure class="tile" data-category="character">
           <span class="tile__tag">No.09</span>
           <button class="tile__trigger" data-title="作品タイトル 09" data-meta="キャラクターデザイン · Character Design · 2023">
             <img src="works/placeholder-9.svg" alt="作品タイトル 09">
@@ -167,7 +179,7 @@
           </button>
         </figure>
 
-        <figure class="tile">
+        <figure class="tile" data-category="mv">
           <span class="tile__tag">No.10</span>
           <button class="tile__trigger" data-title="作品タイトル 10" data-meta="同人小説挿絵 · Fan Novel Illustration · 2023">
             <img src="works/placeholder-10.svg" alt="作品タイトル 10">
@@ -178,7 +190,7 @@
           </button>
         </figure>
 
-        <figure class="tile">
+        <figure class="tile" data-category="novel">
           <span class="tile__tag">No.11</span>
           <button class="tile__trigger" data-title="作品タイトル 11" data-meta="小説カバーイラスト · Novel Cover · 2023">
             <img src="works/placeholder-11.svg" alt="作品タイトル 11">
@@ -189,7 +201,7 @@
           </button>
         </figure>
 
-        <figure class="tile">
+        <figure class="tile" data-category="illustration">
           <span class="tile__tag">No.12</span>
           <button class="tile__trigger" data-title="作品タイトル 12" data-meta="小説挿絵委託 · Novel Illustration · 2022">
             <img src="works/placeholder-12.svg" alt="作品タイトル 12">
@@ -242,6 +254,12 @@
 
       <div class="contact__category">
         <p class="contact__category-title">マネージャー窓口 ／ 海外からのご依頼対応</p>
+        <!-- 經紀人的信箱與社群連結，請替換成實際資訊，可依相同格式增加 -->
+        <div class="contact contact__manager">
+          <a href="mailto:manager@example.com" class="contact__item">manager@example.com</a>
+          <a href="https://x.com/" class="contact__item" target="_blank" rel="noopener">X (Twitter)</a>
+          <a href="https://www.instagram.com/" class="contact__item" target="_blank" rel="noopener">Instagram</a>
+        </div>
         <div class="contact__langs">
           <span class="lang-check">中文<span class="lang-check__mark">✓</span></span>
           <span class="lang-check">English<span class="lang-check__mark">✓</span></span>

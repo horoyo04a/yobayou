@@ -10,9 +10,12 @@ const btnNext = document.getElementById('lightboxNext');
 
 let currentIndex = 0;
 
-function openLightbox(index) {
-  currentIndex = index;
-  const trigger = triggers[currentIndex];
+// 只在「目前有顯示（未被分類篩選隱藏）」的作品之間切換
+function getVisibleTriggers() {
+  return triggers.filter((trigger) => !trigger.closest('.tile').classList.contains('is-hidden'));
+}
+
+function renderLightbox(trigger) {
   const img = trigger.querySelector('img');
   lightboxImg.src = img.src;
   lightboxImg.alt = img.alt;
@@ -24,20 +27,29 @@ function openLightbox(index) {
   btnClose.focus();
 }
 
+function openLightbox(trigger) {
+  const visible = getVisibleTriggers();
+  currentIndex = visible.indexOf(trigger);
+  renderLightbox(trigger);
+}
+
 function closeLightbox() {
+  const visible = getVisibleTriggers();
   lightbox.classList.remove('is-open');
   lightbox.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
-  triggers[currentIndex].focus();
+  if (visible[currentIndex]) visible[currentIndex].focus();
 }
 
 function showRelative(delta) {
-  currentIndex = (currentIndex + delta + triggers.length) % triggers.length;
-  openLightbox(currentIndex);
+  const visible = getVisibleTriggers();
+  if (!visible.length) return;
+  currentIndex = (currentIndex + delta + visible.length) % visible.length;
+  renderLightbox(visible[currentIndex]);
 }
 
-triggers.forEach((trigger, index) => {
-  trigger.addEventListener('click', () => openLightbox(index));
+triggers.forEach((trigger) => {
+  trigger.addEventListener('click', () => openLightbox(trigger));
 });
 
 btnClose.addEventListener('click', closeLightbox);
@@ -53,6 +65,26 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeLightbox();
   if (e.key === 'ArrowLeft') showRelative(-1);
   if (e.key === 'ArrowRight') showRelative(1);
+});
+
+// ---------- 作品分類篩選 ----------
+const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
+const tiles = Array.from(document.querySelectorAll('.tile'));
+
+filterButtons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const filter = btn.dataset.filter;
+
+    filterButtons.forEach((b) => {
+      b.classList.toggle('is-active', b === btn);
+      b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+    });
+
+    tiles.forEach((tile) => {
+      const match = filter === 'all' || tile.dataset.category === filter;
+      tile.classList.toggle('is-hidden', !match);
+    });
+  });
 });
 
 // ---------- 捲動時頂部導覽高亮目前章節 ----------
@@ -99,7 +131,6 @@ const heroPanels = [
   document.getElementById('heroCard4'),
 ].filter(Boolean);
 
-const heroVol = document.getElementById('heroVol');
 const heroStrip = document.querySelector('.hero__strip');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -122,9 +153,6 @@ function updateHeroSlide() {
     const idx = (heroIndex + i * step) % total;
     crossfade(panel, heroImages[idx]);
   });
-  if (heroVol) {
-    heroVol.textContent = `${String((heroIndex % total) + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
-  }
   heroIndex = (heroIndex + 1) % total;
 }
 
@@ -142,4 +170,12 @@ if (heroPanels.length && !prefersReducedMotion) {
   startHeroSlideshow();
   heroStrip.addEventListener('mouseenter', stopHeroSlideshow);
   heroStrip.addEventListener('mouseleave', startHeroSlideshow);
+}
+
+// ---------- LOGO 圖片尚未放入時，自動隱藏避免顯示破圖 ----------
+const navLogoImg = document.querySelector('.nav__logo-img');
+if (navLogoImg) {
+  navLogoImg.addEventListener('error', () => {
+    navLogoImg.style.display = 'none';
+  }, { once: true });
 }
