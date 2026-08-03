@@ -77,20 +77,21 @@ img {
   box-shadow: 3px 3px 0 var(--navy);
 }
 
-/* ---------- 印刷錯位效果的粗黑字 ---------- */
-.pop-text {
-  font-family: 'DotGothic16', cursive;
-  font-weight: 900;
-  text-shadow: -5.5px -5.5px 5px rgba(#fff, 0.3), 6.5px 6.5px 1px #ff0054;
-  color: transparent;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: #000;
-}
-
-.pop-text-sm {
+/* ---------- 名字標題：立體堆疊風格 ---------- */
+.name-title {
   font-family: var(--font-display);
   font-weight: 900;
-  color: var(--navy);
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  text-shadow:
+    /* 黑色描邊 */
+    -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, 2px 2px 0 #000000,
+    -2px 0px 0 #000000, 2px 0px 0 #000000, 0px -2px 0 #000000, 0px 2px 0 #000000,
+    /* 藍色立體堆疊 */
+    1px 1px 0 #1734c2, 2px 2px 0 #1734c2, 3px 3px 0 #1734c2, 4px 4px 0 #1734c2,
+    5px 5px 0 #1734c2, 6px 6px 0 #1734c2, 7px 7px 0 #1734c2, 8px 8px 0 #1734c2,
+    /* 落地柔和陰影 */
+    11px 11px 10px rgba(0, 0, 0, 0.35);
 }
 
 /* ---------- 進場動畫 ---------- */
