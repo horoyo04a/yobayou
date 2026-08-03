@@ -6,14 +6,13 @@
 <title>你的名字｜插畫作品集</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- 頂部導覽 -->
   <header class="nav">
-    <a href="#top" class="nav__logo">你的名字</a>
+    <a href="#top" class="nav__logo">你的名字<span class="nav__logo-dot">.</span></a>
     <nav class="nav__links" aria-label="主導覽">
       <a href="#works" data-nav>作品</a>
       <a href="#about" data-nav>關於</a>
@@ -22,35 +21,45 @@
   </header>
 
   <main>
-    <!-- Hero：文字 + 傾斜堆疊的作品小卡 -->
+    <!-- Hero -->
     <section class="hero" id="top">
+      <div class="halftone hero__halftone" aria-hidden="true"></div>
+
       <div class="hero__text">
-        <p class="hero__eyebrow">Illustration Portfolio</p>
-        <h1 class="hero__name">你的名字</h1>
+        <p class="hero__eyebrow">
+          <span class="sticker">ILLUSTRATION PORTFOLIO</span>
+        </p>
+        <h1 class="hero__name pop-text">你的<br>名字</h1>
         <p class="hero__role">插畫師 ／ 小說插圖 ／ 角色委託</p>
         <p class="hero__note">
           承接小說封面與內頁插圖、角色委託。
           曾任職於電子書內容製作，擅長在直式畫面中安排視線與留白。
         </p>
-        <a href="#works" class="hero__cta">看作品 ↓</a>
+        <a href="#works" class="hero__cta">看作品 →</a>
       </div>
-      <div class="hero__stack" aria-hidden="true">
-        <img class="hero__card hero__card--1" src="works/placeholder-3.svg" alt="">
-        <img class="hero__card hero__card--2" src="works/placeholder-1.svg" alt="">
-        <img class="hero__card hero__card--3" src="works/placeholder-2.svg" alt="">
+
+      <div class="hero__visual">
+        <div class="motion-lines" aria-hidden="true"></div>
+        <div class="hero__stack" aria-hidden="true">
+          <img class="hero__card hero__card--1" src="works/placeholder-3.svg" alt="">
+          <img class="hero__card hero__card--2" src="works/placeholder-1.svg" alt="">
+          <span class="hero__vol">VOL.01</span>
+        </div>
       </div>
     </section>
 
-    <!-- 作品：互動式畫廊，點圖可放大 -->
+    <!-- 作品 -->
     <section class="section" id="works">
       <header class="section__head">
-        <p class="section__label">Works</p>
-        <h2 class="section__title">作品</h2>
+        <p class="section__label"><span class="sticker sticker--sm">WORKS</span></p>
+        <h2 class="section__title pop-text-sm">作品</h2>
         <p class="section__desc">滑過看說明，點圖可以放大瀏覽。多為小說委託插圖，以直式畫幅呈現。</p>
       </header>
 
       <div class="gallery">
-        <figure class="tile">
+
+        <figure class="tile tile--1">
+          <span class="tile__tag">No.01</span>
           <button class="tile__trigger" data-title="作品標題一" data-meta="小說委託 · 內頁插圖 · 2026">
             <img src="works/placeholder-1.svg" alt="作品標題一">
             <span class="tile__overlay">
@@ -60,7 +69,8 @@
           </button>
         </figure>
 
-        <figure class="tile">
+        <figure class="tile tile--2">
+          <span class="tile__tag">No.02</span>
           <button class="tile__trigger" data-title="作品標題二" data-meta="角色委託 · 2025">
             <img src="works/placeholder-2.svg" alt="作品標題二">
             <span class="tile__overlay">
@@ -70,7 +80,8 @@
           </button>
         </figure>
 
-        <figure class="tile">
+        <figure class="tile tile--3">
+          <span class="tile__tag">No.03</span>
           <button class="tile__trigger" data-title="作品標題三" data-meta="小說封面 · 2025">
             <img src="works/placeholder-3.svg" alt="作品標題三">
             <span class="tile__overlay">
@@ -80,7 +91,8 @@
           </button>
         </figure>
 
-        <figure class="tile">
+        <figure class="tile tile--4">
+          <span class="tile__tag">No.04</span>
           <button class="tile__trigger" data-title="作品標題四" data-meta="同人小說插畫 · 2024">
             <img src="works/placeholder-4.svg" alt="作品標題四">
             <span class="tile__overlay">
@@ -90,7 +102,8 @@
           </button>
         </figure>
 
-        <figure class="tile">
+        <figure class="tile tile--5">
+          <span class="tile__tag">No.05</span>
           <button class="tile__trigger" data-title="作品標題五" data-meta="小說委託 · 內頁插圖 · 2024">
             <img src="works/placeholder-5.svg" alt="作品標題五">
             <span class="tile__overlay">
@@ -100,7 +113,8 @@
           </button>
         </figure>
 
-        <figure class="tile">
+        <figure class="tile tile--6">
+          <span class="tile__tag">No.06</span>
           <button class="tile__trigger" data-title="作品標題六" data-meta="角色設計 · 2024">
             <img src="works/placeholder-6.svg" alt="作品標題六">
             <span class="tile__overlay">
@@ -109,13 +123,15 @@
             </span>
           </button>
         </figure>
+
       </div>
     </section>
 
     <!-- 關於 -->
-    <section class="section section--navy" id="about">
+    <section class="section section--ink" id="about">
+      <div class="halftone halftone--onink" aria-hidden="true"></div>
       <header class="section__head">
-        <p class="section__label">About</p>
+        <p class="section__label"><span class="sticker sticker--onink">ABOUT</span></p>
         <h2 class="section__title">關於</h2>
       </header>
       <div class="about">
@@ -137,8 +153,8 @@
     <!-- 聯絡 -->
     <section class="section" id="contact">
       <header class="section__head">
-        <p class="section__label">Contact</p>
-        <h2 class="section__title">聯絡</h2>
+        <p class="section__label"><span class="sticker sticker--sm">CONTACT</span></p>
+        <h2 class="section__title pop-text-sm">聯絡</h2>
         <p class="section__desc">委託 / 合作歡迎來信，或透過下列管道找我。</p>
       </header>
       <div class="contact">
@@ -154,7 +170,6 @@
     <p>© 2026 你的名字．All artwork rights reserved.</p>
   </footer>
 
-  <!-- 放大檢視 -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <button class="lightbox__close" id="lightboxClose" aria-label="關閉">✕</button>
     <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="上一張">←</button>
