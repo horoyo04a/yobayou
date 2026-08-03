@@ -1,5 +1,5 @@
 :root {
-  --navy: #0032a0;
+  --navy: #1474b3;
   --ink: #0a0a0a;
   --white: #ffffff;
   --paper: #ffffff;
@@ -81,16 +81,14 @@ img {
 .pop-text {
   font-family: var(--font-display);
   font-weight: 900;
-  color: var(--ink);
-  text-shadow: 4px 4px 0 var(--navy);
+  color: var(--navy);
   letter-spacing: 0.02em;
 }
 
 .pop-text-sm {
   font-family: var(--font-display);
   font-weight: 900;
-  color: var(--ink);
-  text-shadow: 3px 3px 0 var(--navy);
+  color: var(--navy);
 }
 
 /* ---------- 進場動畫 ---------- */
