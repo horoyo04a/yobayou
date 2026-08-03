@@ -94,6 +94,19 @@ img {
     11px 11px 10px rgba(0, 0, 0, 0.35);
 }
 
+/* 章節標題用：同一風格，依字級縮小描邊與堆疊深度 */
+.name-title-sm {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  text-shadow:
+    -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000,
+    -1px 0px 0 #000000, 1px 0px 0 #000000, 0px -1px 0 #000000, 0px 1px 0 #000000,
+    1px 1px 0 #1734c2, 2px 2px 0 #1734c2, 3px 3px 0 #1734c2, 4px 4px 0 #1734c2,
+    6px 6px 6px rgba(0, 0, 0, 0.35);
+}
+
 /* ---------- 進場動畫 ---------- */
 @keyframes riseIn {
   from { opacity: 0; transform: translateY(22px); }
