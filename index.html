@@ -31,6 +31,14 @@
         </p>
         <h1 class="hero__name pop-text">YOBAYOU<br>┃陽葉</h1>
         <p class="hero__role">Illustrator ／ Novel Illustration ／ Character Design</p>
+
+        <div class="hero__social" aria-label="SNSリンク">
+          <a href="https://www.pixiv.net/" class="hero__social-item" target="_blank" rel="noopener">Pixiv</a>
+          <a href="https://x.com/" class="hero__social-item" target="_blank" rel="noopener">X (Twitter)</a>
+          <a href="mailto:you@example.com" class="hero__social-item">Email</a>
+          <!-- Skebなど追加のSNSリンクはここに同じ形式で追加してください -->
+        </div>
+
         <p class="hero__note">
           小説の表紙・挿絵、キャラクターデザインのご依頼を承っております。
           電子書籍制作会社での勤務経験を活かし、縦長構図の視線誘導と余白のバランスを大切にしています。
@@ -40,11 +48,13 @@
 
       <div class="hero__visual">
         <div class="motion-lines" aria-hidden="true"></div>
-        <div class="hero__stack" aria-hidden="true">
-          <img id="heroCard1" class="hero__card hero__card--1" src="works/placeholder-3.png" alt="">
-          <img id="heroCard2" class="hero__card hero__card--2" src="works/placeholder-1.svg" alt="">
-          <span class="hero__vol" id="heroVol">01 / 06</span>
+        <div class="hero__strip" aria-hidden="true">
+          <div class="hero__panel"><img id="heroCard1" src="works/placeholder-1.svg" alt=""></div>
+          <div class="hero__panel"><img id="heroCard2" src="works/placeholder-2.svg" alt=""></div>
+          <div class="hero__panel"><img id="heroCard3" src="works/placeholder-3.svg" alt=""></div>
+          <div class="hero__panel"><img id="heroCard4" src="works/placeholder-4.svg" alt=""></div>
         </div>
+        <span class="hero__vol" id="heroVol">01 / 12</span>
       </div>
     </section>
 
@@ -58,7 +68,7 @@
 
       <div class="gallery">
 
-        <figure class="tile tile--1">
+        <figure class="tile">
           <span class="tile__tag">No.01</span>
           <button class="tile__trigger" data-title="作品タイトル 01" data-meta="小説挿絵委託 · Novel Illustration · 2026">
             <img src="works/placeholder-1.svg" alt="作品タイトル 01">
@@ -69,7 +79,7 @@
           </button>
         </figure>
 
-        <figure class="tile tile--2">
+        <figure class="tile">
           <span class="tile__tag">No.02</span>
           <button class="tile__trigger" data-title="作品タイトル 02" data-meta="キャラクターデザイン · Character Design · 2025">
             <img src="works/placeholder-2.svg" alt="作品タイトル 02">
@@ -80,10 +90,10 @@
           </button>
         </figure>
 
-        <figure class="tile tile--3">
+        <figure class="tile">
           <span class="tile__tag">No.03</span>
           <button class="tile__trigger" data-title="作品タイトル 03" data-meta="小説カバーイラスト · Novel Cover · 2025">
-            <img src="works/placeholder-3.png" alt="作品タイトル 03">
+            <img src="works/placeholder-3.svg" alt="作品タイトル 03">
             <span class="tile__overlay">
               <span class="tile__overlay-title">作品タイトル 03</span>
               <span class="tile__overlay-meta">小説カバーイラスト · Novel Cover · 2025</span>
@@ -91,7 +101,7 @@
           </button>
         </figure>
 
-        <figure class="tile tile--4">
+        <figure class="tile">
           <span class="tile__tag">No.04</span>
           <button class="tile__trigger" data-title="作品タイトル 04" data-meta="同人小説挿絵 · Fan Novel Illustration · 2024">
             <img src="works/placeholder-4.svg" alt="作品タイトル 04">
@@ -102,7 +112,7 @@
           </button>
         </figure>
 
-        <figure class="tile tile--5">
+        <figure class="tile">
           <span class="tile__tag">No.05</span>
           <button class="tile__trigger" data-title="作品タイトル 05" data-meta="小説挿絵委託 · Novel Illustration · 2024">
             <img src="works/placeholder-5.svg" alt="作品タイトル 05">
@@ -113,7 +123,7 @@
           </button>
         </figure>
 
-        <figure class="tile tile--6">
+        <figure class="tile">
           <span class="tile__tag">No.06</span>
           <button class="tile__trigger" data-title="作品タイトル 06" data-meta="キャラクターデザイン · Character Design · 2024">
             <img src="works/placeholder-6.svg" alt="作品タイトル 06">
@@ -124,11 +134,77 @@
           </button>
         </figure>
 
+        <figure class="tile">
+          <span class="tile__tag">No.07</span>
+          <button class="tile__trigger" data-title="作品タイトル 07" data-meta="小説カバーイラスト · Novel Cover · 2024">
+            <img src="works/placeholder-7.svg" alt="作品タイトル 07">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品タイトル 07</span>
+              <span class="tile__overlay-meta">小説カバーイラスト · Novel Cover · 2024</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile">
+          <span class="tile__tag">No.08</span>
+          <button class="tile__trigger" data-title="作品タイトル 08" data-meta="小説挿絵委託 · Novel Illustration · 2023">
+            <img src="works/placeholder-8.svg" alt="作品タイトル 08">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品タイトル 08</span>
+              <span class="tile__overlay-meta">小説挿絵委託 · Novel Illustration · 2023</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile">
+          <span class="tile__tag">No.09</span>
+          <button class="tile__trigger" data-title="作品タイトル 09" data-meta="キャラクターデザイン · Character Design · 2023">
+            <img src="works/placeholder-9.svg" alt="作品タイトル 09">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品タイトル 09</span>
+              <span class="tile__overlay-meta">キャラクターデザイン · Character Design · 2023</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile">
+          <span class="tile__tag">No.10</span>
+          <button class="tile__trigger" data-title="作品タイトル 10" data-meta="同人小説挿絵 · Fan Novel Illustration · 2023">
+            <img src="works/placeholder-10.svg" alt="作品タイトル 10">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品タイトル 10</span>
+              <span class="tile__overlay-meta">同人小説挿絵 · Fan Novel Illustration · 2023</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile">
+          <span class="tile__tag">No.11</span>
+          <button class="tile__trigger" data-title="作品タイトル 11" data-meta="小説カバーイラスト · Novel Cover · 2023">
+            <img src="works/placeholder-11.svg" alt="作品タイトル 11">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品タイトル 11</span>
+              <span class="tile__overlay-meta">小説カバーイラスト · Novel Cover · 2023</span>
+            </span>
+          </button>
+        </figure>
+
+        <figure class="tile">
+          <span class="tile__tag">No.12</span>
+          <button class="tile__trigger" data-title="作品タイトル 12" data-meta="小説挿絵委託 · Novel Illustration · 2022">
+            <img src="works/placeholder-12.svg" alt="作品タイトル 12">
+            <span class="tile__overlay">
+              <span class="tile__overlay-title">作品タイトル 12</span>
+              <span class="tile__overlay-meta">小説挿絵委託 · Novel Illustration · 2022</span>
+            </span>
+          </button>
+        </figure>
+
       </div>
     </section>
 
     <!-- About -->
-    <section class="section section--ink" id="about">
+    <section class="section section--navy" id="about">
       <div class="halftone halftone--onink" aria-hidden="true"></div>
       <header class="section__head">
         <p class="section__label"><span class="sticker sticker--onink">ABOUT</span></p>
@@ -155,13 +231,21 @@
       <header class="section__head">
         <p class="section__label"><span class="sticker sticker--sm">CONTACT</span></p>
         <h2 class="section__title pop-text-sm">お問い合わせ</h2>
-        <p class="section__desc">ご依頼・お仕事のご相談はお気軽にどうぞ。下記のリンクからもご連絡いただけます。</p>
+        <p class="section__desc">ご依頼・お仕事のご相談はお気軽にどうぞ。SNSは上部のリンクからもご連絡いただけます。</p>
       </header>
       <div class="contact">
         <a href="mailto:you@example.com" class="contact__item">you@example.com</a>
-        <a href="https://www.foriio.com/" class="contact__item" target="_blank" rel="noopener">foriio Portfolio</a>
         <a href="https://www.pixiv.net/" class="contact__item" target="_blank" rel="noopener">Pixiv</a>
         <a href="https://x.com/" class="contact__item" target="_blank" rel="noopener">X (Twitter)</a>
+        <!-- Skebなど追加のリンクはここに同じ形式で追加してください -->
+      </div>
+
+      <div class="contact__category">
+        <p class="contact__category-title">マネージャー窓口 ／ 海外からのご依頼対応</p>
+        <div class="contact__langs">
+          <span class="lang-check">中文<span class="lang-check__mark">✓</span></span>
+          <span class="lang-check">English<span class="lang-check__mark">✓</span></span>
+        </div>
       </div>
     </section>
   </main>
@@ -174,7 +258,9 @@
     <button class="lightbox__close" id="lightboxClose" aria-label="閉じる">✕</button>
     <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="前へ">←</button>
     <figure class="lightbox__figure">
-      <img class="lightbox__img" id="lightboxImg" src="" alt="">
+      <div class="lightbox__imgwrap">
+        <img class="lightbox__img" id="lightboxImg" src="" alt="">
+      </div>
       <figcaption>
         <span class="lightbox__title" id="lightboxTitle"></span>
         <span class="lightbox__meta" id="lightboxMeta"></span>

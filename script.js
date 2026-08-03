@@ -76,7 +76,7 @@ const observer = new IntersectionObserver(
 
 sections.forEach((section) => observer.observe(section));
 
-// ---------- Hero 幻燈片：兩張卡片輪流換圖 ----------
+// ---------- Hero 漫畫分格：四格輪流換圖 ----------
 const heroImages = [
   'works/placeholder-1.svg',
   'works/placeholder-2.svg',
@@ -84,12 +84,23 @@ const heroImages = [
   'works/placeholder-4.svg',
   'works/placeholder-5.svg',
   'works/placeholder-6.svg',
+  'works/placeholder-7.svg',
+  'works/placeholder-8.svg',
+  'works/placeholder-9.svg',
+  'works/placeholder-10.svg',
+  'works/placeholder-11.svg',
+  'works/placeholder-12.svg',
 ];
 
-const heroCard1 = document.getElementById('heroCard1');
-const heroCard2 = document.getElementById('heroCard2');
+const heroPanels = [
+  document.getElementById('heroCard1'),
+  document.getElementById('heroCard2'),
+  document.getElementById('heroCard3'),
+  document.getElementById('heroCard4'),
+].filter(Boolean);
+
 const heroVol = document.getElementById('heroVol');
-const heroStack = document.querySelector('.hero__stack');
+const heroStrip = document.querySelector('.hero__strip');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 let heroIndex = 0;
@@ -106,12 +117,13 @@ function crossfade(img, src) {
 
 function updateHeroSlide() {
   const total = heroImages.length;
-  const i1 = heroIndex % total;
-  const i2 = (heroIndex + 3) % total; // 讓兩張卡片永遠顯示不同的圖
-  crossfade(heroCard1, heroImages[i1]);
-  crossfade(heroCard2, heroImages[i2]);
+  const step = Math.max(1, Math.floor(total / heroPanels.length));
+  heroPanels.forEach((panel, i) => {
+    const idx = (heroIndex + i * step) % total;
+    crossfade(panel, heroImages[idx]);
+  });
   if (heroVol) {
-    heroVol.textContent = `${String(i1 + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+    heroVol.textContent = `${String((heroIndex % total) + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
   }
   heroIndex = (heroIndex + 1) % total;
 }
@@ -126,8 +138,8 @@ function stopHeroSlideshow() {
   heroTimer = null;
 }
 
-if (heroCard1 && heroCard2 && !prefersReducedMotion) {
+if (heroPanels.length && !prefersReducedMotion) {
   startHeroSlideshow();
-  heroStack.addEventListener('mouseenter', stopHeroSlideshow);
-  heroStack.addEventListener('mouseleave', startHeroSlideshow);
+  heroStrip.addEventListener('mouseenter', stopHeroSlideshow);
+  heroStrip.addEventListener('mouseleave', startHeroSlideshow);
 }
