@@ -269,15 +269,38 @@ img { max-width: 100%; display: block; }
   height: 460px;
 }
 
-.motion-lines {
+/* 漫畫對話框造型的裝飾背景，取代原本的斜線紋理 */
+.speech-bg {
   position: absolute;
-  inset: -10% -10%;
-  background: repeating-linear-gradient(
-    100deg,
-    transparent 0 16px,
-    rgba(10, 10, 10, 0.05) 16px 18px
-  );
+  inset: -8% -6% -12% -8%;
   z-index: 0;
+  background:
+    radial-gradient(var(--navy) 1.4px, transparent 1.6px) center / 12px 12px,
+    var(--white);
+  border: 4px solid var(--ink);
+  border-radius: 42% 58% 54% 46% / 48% 42% 58% 52%;
+  box-shadow: 6px 6px 0 var(--navy);
+}
+
+.speech-bg::before,
+.speech-bg::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  left: 16%;
+  border-style: solid;
+}
+
+.speech-bg::before {
+  border-width: 30px 40px 0 0;
+  border-color: var(--ink) transparent transparent transparent;
+}
+
+.speech-bg::after {
+  bottom: -22px;
+  left: calc(16% + 7px);
+  border-width: 24px 32px 0 0;
+  border-color: var(--white) transparent transparent transparent;
 }
 
 .hero__strip {
