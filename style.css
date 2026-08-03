@@ -1,5 +1,6 @@
 :root {
   --navy: #1474b3;
+  --blue: #1734c2;
   --ink: #0a0a0a;
   --white: #ffffff;
   --paper: #ffffff;
@@ -81,7 +82,7 @@ img {
 .pop-text {
   font-family: var(--font-display);
   font-weight: 900;
-  color: var(--navy);
+  color: var(--blue);
   letter-spacing: 0.02em;
 }
 
