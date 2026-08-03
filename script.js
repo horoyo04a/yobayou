@@ -67,12 +67,15 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowRight') showRelative(1);
 });
 
-// ---------- 作品分類篩選 ----------
+// ---------- 作品分類篩選（切換時做淡入淡出，感覺像換頁） ----------
 const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
 const tiles = Array.from(document.querySelectorAll('.tile'));
+const gallery = document.querySelector('.gallery');
+const FILTER_TRANSITION_MS = 200;
 
 filterButtons.forEach((btn) => {
   btn.addEventListener('click', () => {
+    if (btn.classList.contains('is-active')) return;
     const filter = btn.dataset.filter;
 
     filterButtons.forEach((b) => {
@@ -80,10 +83,15 @@ filterButtons.forEach((btn) => {
       b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
     });
 
-    tiles.forEach((tile) => {
-      const match = filter === 'all' || tile.dataset.category === filter;
-      tile.classList.toggle('is-hidden', !match);
-    });
+    if (gallery) gallery.classList.add('is-switching');
+
+    window.setTimeout(() => {
+      tiles.forEach((tile) => {
+        const match = filter === 'all' || tile.dataset.category === filter;
+        tile.classList.toggle('is-hidden', !match);
+      });
+      if (gallery) gallery.classList.remove('is-switching');
+    }, FILTER_TRANSITION_MS);
   });
 });
 
@@ -110,18 +118,26 @@ sections.forEach((section) => observer.observe(section));
 
 // ---------- Hero 漫畫分格：四格輪流換圖 ----------
 const heroImages = [
-  'works/placeholder-1.svg',
-  'works/placeholder-2.svg',
-  'works/placeholder-3.svg',
-  'works/placeholder-4.svg',
-  'works/placeholder-5.svg',
-  'works/placeholder-6.svg',
-  'works/placeholder-7.svg',
-  'works/placeholder-8.svg',
-  'works/placeholder-9.svg',
-  'works/placeholder-10.svg',
-  'works/placeholder-11.svg',
-  'works/placeholder-12.svg',
+  'works/placeholder-01.png',
+  'works/placeholder-02.png',
+  'works/placeholder-03.png',
+  'works/placeholder-04.png',
+  'works/placeholder-05.png',
+  'works/placeholder-06.png',
+  'works/placeholder-07.png',
+  'works/placeholder-08.png',
+  'works/placeholder-09.png',
+  'works/placeholder-10.png',
+  'works/placeholder-11.png',
+  'works/placeholder-12.png',
+  'works/placeholder-13.png',
+  'works/placeholder-14.png',
+  'works/placeholder-15.png',
+  'works/placeholder-16.png',
+  'works/placeholder-17.png',
+  'works/placeholder-18.png',
+  'works/placeholder-19.png',
+  'works/placeholder-20.png',
 ];
 
 const heroPanels = [
