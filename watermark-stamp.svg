@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
   <circle cx="60" cy="60" r="52" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.85"/>
   <circle cx="60" cy="60" r="44" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.55"/>
-  <text x="60" y="70" text-anchor="middle"
-        font-family="Fraunces, serif" font-size="34" font-weight="600"
-        fill="#ffffff" opacity="0.9">YN</text>
+  <text x="60" y="72" text-anchor="middle"
+        font-family="Noto Sans JP, sans-serif" font-size="36" font-weight="900"
+        fill="#ffffff" opacity="0.9">陽</text>
 </svg>

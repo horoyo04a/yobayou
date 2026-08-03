@@ -75,3 +75,59 @@ const observer = new IntersectionObserver(
 );
 
 sections.forEach((section) => observer.observe(section));
+
+// ---------- Hero 幻燈片：兩張卡片輪流換圖 ----------
+const heroImages = [
+  'works/placeholder-1.svg',
+  'works/placeholder-2.svg',
+  'works/placeholder-3.svg',
+  'works/placeholder-4.svg',
+  'works/placeholder-5.svg',
+  'works/placeholder-6.svg',
+];
+
+const heroCard1 = document.getElementById('heroCard1');
+const heroCard2 = document.getElementById('heroCard2');
+const heroVol = document.getElementById('heroVol');
+const heroStack = document.querySelector('.hero__stack');
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+let heroIndex = 0;
+let heroTimer = null;
+
+function crossfade(img, src) {
+  if (!img) return;
+  img.style.opacity = '0';
+  window.setTimeout(() => {
+    img.src = src;
+    img.style.opacity = '1';
+  }, 280);
+}
+
+function updateHeroSlide() {
+  const total = heroImages.length;
+  const i1 = heroIndex % total;
+  const i2 = (heroIndex + 3) % total; // 讓兩張卡片永遠顯示不同的圖
+  crossfade(heroCard1, heroImages[i1]);
+  crossfade(heroCard2, heroImages[i2]);
+  if (heroVol) {
+    heroVol.textContent = `${String(i1 + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+  }
+  heroIndex = (heroIndex + 1) % total;
+}
+
+function startHeroSlideshow() {
+  if (prefersReducedMotion || heroTimer) return;
+  heroTimer = window.setInterval(updateHeroSlide, 3200);
+}
+
+function stopHeroSlideshow() {
+  window.clearInterval(heroTimer);
+  heroTimer = null;
+}
+
+if (heroCard1 && heroCard2 && !prefersReducedMotion) {
+  startHeroSlideshow();
+  heroStack.addEventListener('mouseenter', stopHeroSlideshow);
+  heroStack.addEventListener('mouseleave', startHeroSlideshow);
+}

@@ -8,8 +8,8 @@
   --text-onink-muted: #b9bcc4;
   --nav-h: 72px;
 
-  --font-display: "Noto Sans TC", sans-serif;
-  --font-body: "Noto Sans TC", sans-serif;
+  --font-display: "Noto Sans JP", sans-serif;
+  --font-body: "Noto Sans JP", sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
 }
 
@@ -246,6 +246,7 @@ img { max-width: 100%; display: block; }
   border: 3px solid var(--ink);
   box-shadow: 6px 6px 0 var(--navy);
   animation: riseIn 0.7s ease both;
+  transition: opacity 0.28s ease, transform 0.3s ease;
 }
 
 .hero__card--1 {
