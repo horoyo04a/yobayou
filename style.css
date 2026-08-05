@@ -354,7 +354,10 @@ img {
 /* 漫畫對話框造型的裝飾背景：乾淨的圓角方框＋尾巴，尺寸固定放大於幻燈片本身，確保不會被裁切露餡 */
 .speech-bg {
   position: absolute;
-  inset: -22px -26px -36px -22px;
+  top: -22px;
+  right: -26px;
+  bottom: -36px;
+  left: -22px;
   z-index: 0;
   background: var(--white);
   border: 4px solid var(--ink);
@@ -648,7 +651,7 @@ img {
 .about__cameo-bubble {
   position: absolute;
   left: -190px;
-  top: -55px;
+  top: -135px;
   background: var(--white);
   border: 3px solid var(--ink);
   border-radius: 24px;
@@ -899,6 +902,28 @@ img {
   .hero__jobs { max-width: none; }
 
   .hero__visual { height: 300px; margin-top: 12px; }
+
+  .speech-bg {
+    top: -8px;
+    right: -8px;
+    bottom: -12px;
+    left: -8px;
+    border-radius: 16px;
+    border-width: 3px;
+  }
+  .speech-bg::before,
+  .speech-bg::after {
+    bottom: -12px;
+    left: 12%;
+  }
+  .speech-bg::before {
+    border-width: 12px 16px 0 0;
+  }
+  .speech-bg::after {
+    bottom: -8px;
+    left: calc(12% + 5px);
+    border-width: 9px 12px 0 0;
+  }
   .hero__panel:nth-child(3),
   .hero__panel:nth-child(4) { display: none; }
 
