@@ -8,7 +8,7 @@
   --text-onink: #ffffff;
   --text-onink-muted: #b9bcc4;
   --nav-h: 72px;
-  --watermark-size: 280px;
+  --watermark-size: 52px;
   --watermark-opacity: 0.8;
 
   --font-display: "Noto Sans JP", sans-serif;
@@ -813,7 +813,7 @@ img {
 /* ---------- RWD ---------- */
 @media (max-width: 720px) {
   :root {
-    --watermark-size: 150px;
+    --watermark-size: 34px;
   }
 
   .nav { padding: 0 5vw; }
@@ -833,13 +833,25 @@ img {
 
   .about { grid-template-columns: 1fr; }
 
+  .section--navy#about { min-height: 0; }
+
   .about__cameo {
     position: static;
-    margin: 28px 0 0;
+    transform: none;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 14px;
+    margin: 28px 0 0;
     pointer-events: auto;
   }
-  .about__cameo-bubble { margin-right: 0; max-width: 260px; }
+  .about__cameo-bubble {
+    position: static;
+    left: auto;
+    top: auto;
+    width: auto;
+    max-width: 260px;
+  }
   .about__cameo-bubble::before,
   .about__cameo-bubble::after { display: none; }
   .about__cameo-img { height: auto; width: 55vw; max-width: 220px; }
