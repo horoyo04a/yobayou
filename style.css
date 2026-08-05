@@ -759,7 +759,7 @@ img {
   background-image: url("assets/watermark.png");
   background-repeat: no-repeat;
   background-position: bottom 14px right 14px;
-  background-size: calc(var(--watermark-size) * 1.9) calc(var(--watermark-size) * 1.9);
+  background-size: calc(var(--watermark-size) * 2.8) calc(var(--watermark-size) * 2.8);
 }
 
 .lightbox__figure figcaption { text-align: center; color: var(--white); }
