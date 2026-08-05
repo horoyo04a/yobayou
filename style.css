@@ -8,7 +8,7 @@
   --text-onink: #ffffff;
   --text-onink-muted: #b9bcc4;
   --nav-h: 72px;
-  --watermark-size: 52px;
+  --watermark-size: 76px;
   --watermark-opacity: 0.8;
 
   --font-display: "Noto Sans JP", sans-serif;
@@ -784,8 +784,8 @@ img {
   background: var(--white);
   border: 2px solid var(--ink);
   color: var(--ink);
-  width: 88px;
-  height: 88px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   cursor: pointer;
   font-size: 1rem;
@@ -813,7 +813,7 @@ img {
 /* ---------- RWD ---------- */
 @media (max-width: 720px) {
   :root {
-    --watermark-size: 34px;
+    --watermark-size: 50px;
   }
 
   .nav { padding: 0 5vw; }
