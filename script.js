@@ -133,27 +133,32 @@ if (sections.length) {
 }
 
 // ---------- Hero 漫畫分格：四格輪流換圖 ----------
+// 直式作品通常裁切起來都沒問題，不用特別設定。
+// 橫式（或人物不在正中間）的作品，把該筆加上 position，指定要保留畫面的哪個位置，不然預設會從正中間裁切。
+// position 可以用 'top' / 'bottom' / 'left' / 'right' / 'top left' 這類方位詞，或是 '30% 20%' 這種百分比座標，語法跟 CSS 的 object-position 完全一樣。
 const heroImages = [
-  'works/01.jpg',
-  'works/02.jpg',
-  'works/03.jpg',
-  'works/04.jpg',
-  'works/05.jpg',
-  'works/06.jpg',
-  'works/07.jpg',
-  'works/08.jpg',
-  'works/09.jpg',
-  'works/10.jpg',
-  'works/11.jpg',
-  'works/12.jpg',
-  'works/13.jpg',
-  'works/14.jpg',
-  'works/15.jpg',
-  'works/16.jpg',
-  'works/17.jpg',
-  'works/18.jpg',
-  'works/19.jpg',
-  'works/20.jpg',
+  { src: 'works/01.jpg' },
+  { src: 'works/02.jpg' },
+  { src: 'works/03.jpg' },
+  { src: 'works/04.jpg' },
+  { src: 'works/05.jpg' },
+  { src: 'works/06.jpg' },
+  { src: 'works/07.jpg' },
+  { src: 'works/08.jpg' },
+  { src: 'works/09.jpg' },
+  { src: 'works/10.jpg' },
+  { src: 'works/11.jpg' },
+  { src: 'works/12.jpg' },
+  { src: 'works/13.jpg' },
+  { src: 'works/14.jpg' },
+  { src: 'works/15.jpg' },
+  { src: 'works/16.jpg' },
+  { src: 'works/17.jpg' },
+  { src: 'works/18.jpg' },
+  { src: 'works/19.jpg' },
+  { src: 'works/20.jpg' },
+  // 橫式作品範例，人物如果偏左，把 position 改成 'left center' 這樣的寫法：
+  // { src: 'works/21.jpg', position: 'left center' },
 ];
 
 const heroPanels = [
@@ -169,11 +174,12 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 let heroIndex = 0;
 let heroTimer = null;
 
-function crossfade(img, src) {
+function crossfade(img, item) {
   if (!img) return;
   img.style.opacity = '0';
   window.setTimeout(() => {
-    img.src = src;
+    img.src = item.src;
+    img.style.objectPosition = item.position || 'center';
     img.style.opacity = '1';
   }, 280);
 }
@@ -187,6 +193,11 @@ function updateHeroSlide() {
   });
   heroIndex = (heroIndex + 1) % total;
 }
+
+// 頁面一開始就套用對應的裁切位置（HTML 裡寫死的前 4 張圖也要套用，不用等第一次輪播才生效）
+heroPanels.forEach((panel, i) => {
+  if (heroImages[i]) panel.style.objectPosition = heroImages[i].position || 'center';
+});
 
 function startHeroSlideshow() {
   if (prefersReducedMotion || heroTimer) return;
