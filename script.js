@@ -1,15 +1,3 @@
-// ---------- 圖片保護：擋右鍵選單、擋拖曳另開視窗 ----------
-// 注意：這只能擋掉一般使用者的右鍵/拖曳操作，
-// 懂技術的人還是可以用瀏覽器開發者工具或截圖拿到原圖，無法做到 100% 防盜圖。
-document.addEventListener('contextmenu', (e) => {
-  if (e.target.tagName === 'IMG') e.preventDefault();
-});
-
-document.querySelectorAll('img').forEach((img) => {
-  img.setAttribute('draggable', 'false');
-  img.addEventListener('dragstart', (e) => e.preventDefault());
-});
-
 // ---------- 燈箱 Lightbox（只存在於 works.html） ----------
 const triggers = Array.from(document.querySelectorAll('.tile__trigger'));
 const lightbox = document.getElementById('lightbox');
@@ -134,26 +122,26 @@ if (sections.length) {
 
 // ---------- Hero 漫畫分格：四格輪流換圖 ----------
 const heroImages = [
-  'works/01.jpg',
-  'works/02.jpg',
-  'works/03.jpg',
-  'works/04.jpg',
-  'works/05.jpg',
-  'works/06.jpg',
-  'works/07.jpg',
-  'works/08.jpg',
-  'works/09.jpg',
-  'works/10.jpg',
-  'works/11.jpg',
-  'works/12.jpg',
-  'works/13.jpg',
-  'works/14.jpg',
-  'works/15.jpg',
-  'works/16.jpg',
-  'works/17.jpg',
-  'works/18.jpg',
-  'works/19.jpg',
-  'works/20.jpg',
+  'works/placeholder-01.png',
+  'works/placeholder-02.png',
+  'works/placeholder-03.png',
+  'works/placeholder-04.png',
+  'works/placeholder-05.png',
+  'works/placeholder-06.png',
+  'works/placeholder-07.png',
+  'works/placeholder-08.png',
+  'works/placeholder-09.png',
+  'works/placeholder-10.png',
+  'works/placeholder-11.png',
+  'works/placeholder-12.png',
+  'works/placeholder-13.png',
+  'works/placeholder-14.png',
+  'works/placeholder-15.png',
+  'works/placeholder-16.png',
+  'works/placeholder-17.png',
+  'works/placeholder-18.png',
+  'works/placeholder-19.png',
+  'works/placeholder-20.png',
 ];
 
 const heroPanels = [
@@ -190,7 +178,7 @@ function updateHeroSlide() {
 
 function startHeroSlideshow() {
   if (prefersReducedMotion || heroTimer) return;
-  heroTimer = window.setInterval(updateHeroSlide, 10000);
+  heroTimer = window.setInterval(updateHeroSlide, 3200);
 }
 
 function stopHeroSlideshow() {
