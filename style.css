@@ -860,6 +860,7 @@ img {
 .lightbox__close,
 .lightbox__nav {
   position: fixed;
+  z-index: 20;
   background: var(--white);
   border: 2px solid var(--ink);
   color: var(--ink);
@@ -964,11 +965,20 @@ img {
   .about__cameo-img { height: auto; width: 55vw; max-width: 220px; }
 
   .lightbox { padding: 8vw 5vw; }
-  .lightbox__figure { max-width: 92vw; max-height: 88vh; }
+  .lightbox__figure { max-width: 88vw; max-height: 82vh; }
   .lightbox__imgwrap,
-  .lightbox__img { max-height: 62vh; }
+  .lightbox__img { max-height: 58vh; }
 
-  .lightbox__nav { width: 38px; height: 38px; }
+  /* 左右箭頭改到畫面下方置中並排，避開手機瀏覽器左右邊緣的「滑動返回」手勢熱區，也不會被圖片擋住 */
+  .lightbox__nav {
+    width: 42px;
+    height: 42px;
+    top: auto;
+    bottom: 22px;
+    transform: none;
+  }
+  .lightbox__nav--prev { left: 50%; margin-left: -54px; }
+  .lightbox__nav--next { left: 50%; right: auto; margin-left: 12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
