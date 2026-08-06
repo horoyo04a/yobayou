@@ -139,7 +139,7 @@ if (sections.length) {
 const heroImages = [
   { src: 'works/01.jpg' },
   { src: 'works/02.jpg' },
-  { src: 'works/03.jpg', position: 'right center'  },
+  { src: 'works/03.jpg', position: 'right center' },
   { src: 'works/04.jpg' },
   { src: 'works/05.jpg' },
   { src: 'works/06.jpg' },
