@@ -896,6 +896,10 @@ img {
     --watermark-size: 50px;
   }
 
+  .lightbox__imgwrap::after {
+    background-size: 60px 60px;
+  }
+
   .nav { padding: 0 5vw; }
   .nav__links { gap: 18px; }
 
