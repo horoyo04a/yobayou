@@ -897,7 +897,7 @@ img {
   }
 
   .lightbox__imgwrap::after {
-    background-size: 60px 60px;
+    background-size: 40px 40px;
   }
 
   .nav { padding: 0 5vw; }
